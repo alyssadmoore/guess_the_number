@@ -1,8 +1,9 @@
 import random
 
 correct = 'you guessed correctly!'
-too_low = 'too low!'
-too_high = 'too low!'
+
+too_low = 'too low!!'
+too_high = 'too high!'
 
 
 def configure_range():
