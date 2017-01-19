@@ -1,13 +1,13 @@
 import random
 
 correct = 'you guessed correctly!'
-too_low = 'too low'
-too_high = 'too high'
+too_low = 'too low!'
+too_high = 'too high!'
 
 
 def configure_range():
-    '''Set the high and low values for the random number'''
-    return 1, 10
+    # Set the high and low values for the random number
+    return 1, 20
 
 
 def generate_secret(low, high):
