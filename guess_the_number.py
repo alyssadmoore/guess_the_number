@@ -60,5 +60,10 @@ def main():
             break
 
 
+
 if __name__ == '__main__':
-    main()
+    while True:
+        main()
+        play_again = input('Do you want to play again? Y/N  ')
+        if play_again != "y":
+            break
