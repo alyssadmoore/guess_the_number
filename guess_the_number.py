@@ -4,14 +4,13 @@ correct = 'you guessed correctly!'
 
 too_low = 'too low!!'
 too_high = 'too high!'
+guesses = []
 
 
 def configure_range():
     # Set the high and low values for the random number
 
     return 1, 20
-    #Nice work, I got the update.
-
 
 
 def generate_secret(low, high):
@@ -28,13 +27,20 @@ def get_guess():
         print("That isn't an integer, please try again.")
     return guess
 
+
 def check_guess(guess, secret):
     '''compare guess and secret, return string describing result of comparison'''
     if guess == secret:
+        guesses.append("1")
+        print("Total number of guesses: " + str(len(guesses)))
         return correct
     if guess < secret:
+        guesses.append("1")
+        print("Guess #" + str(len(guesses)))
         return too_low
     if guess > secret:
+        print("Guess #" + str(len(guesses)))
+        guesses.append("1")
         return too_high
 
 
