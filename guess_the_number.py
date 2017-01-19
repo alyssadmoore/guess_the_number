@@ -1,25 +1,28 @@
 import random
 
 correct = 'you guessed correctly!'
-
 too_low = 'too low!!'
 too_high = 'too high!'
 guesses = []
 
 
+# Set the high and low values for the random number
 def configure_range():
-    # Set the high and low values for the random number
+    try:
+        low_num = int(input("What is the lower number? "))
+        high_num = int(input("What is the higher number? "))
+        return (low_num, high_num)
+    except Exception:
+        print("Something went wrong. Please re-enter your desired integers.")
 
-    return 1, 20
 
-
+# Generate a secret number for the user to guess
 def generate_secret(low, high):
-    '''Generate a secret number for the user to guess'''
     return random.randint(low, high)
 
 
+# Get user's guess
 def get_guess():
-    '''get user's guess'''
     guess = 0
     try:
         guess = int(input("Guess the secret number: "))
@@ -28,8 +31,8 @@ def get_guess():
     return guess
 
 
+# Compare guess and secret, return string describing result of comparison
 def check_guess(guess, secret):
-    '''compare guess and secret, return string describing result of comparison'''
     if guess == secret:
         guesses.append("1")
         print("Total number of guesses: " + str(len(guesses)))
@@ -39,8 +42,8 @@ def check_guess(guess, secret):
         print("Guess #" + str(len(guesses)))
         return too_low
     if guess > secret:
-        print("Guess #" + str(len(guesses)))
         guesses.append("1")
+        print("Guess #" + str(len(guesses)))
         return too_high
 
 
@@ -48,7 +51,6 @@ def main():
 
     (low, high) = configure_range()
     secret = generate_secret(low, high)
-
     while True:
         guess = get_guess()
         result = check_guess(guess, secret)
